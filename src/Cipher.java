@@ -1,35 +1,38 @@
-public class Cipher {
+abstract class Cipher {
 
     public Cipher() {
         // write constructor for cipher
     }
 
     // encrypt char
-    public char encrypt(char c) { // may be abstract
-        // return encrypted char
-        return 'a'; // stub
-    }
+    abstract char encrypt(char c);
 
     // decrypt char
-    public char decrypt(char c) { // may be abstract
-        // return decrypted char
-        return 'a'; // stub
-    }
-
+    abstract char decrypt(char c);
 
     // encrypt string
     public String encrypt(String s) { // may be abstract
+        StringBuilder sb = new StringBuilder();
+        char c;
+        for (int i = 0; i < s.length(); i++) {
+            c = encrypt(s.charAt(i));
+            sb.append(c);
+        }
         // return encrypted String
-        return "a"; // stub
+        return sb.toString();
     }
-
 
     // decrypt string
     public String decrypt(String s) { // may be abstract
-        // return decrypted String
-        return "a"; // stub
+        StringBuilder sb = new StringBuilder();
+        char c;
+        for (int i = 0; i < s.length(); i++) {
+            c = decrypt(s.charAt(i));
+            sb.append(c);
+        }
+        // return encrypted String
+        return sb.toString();
     }
-
 
     // newCopy
 
