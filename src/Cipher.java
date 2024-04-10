@@ -1,7 +1,8 @@
 abstract class Cipher {
 
+
     public Cipher() {
-        // write constructor for cipher
+
     }
 
     // encrypt char
@@ -35,5 +36,7 @@ abstract class Cipher {
     }
 
     // newCopy
+    abstract Cipher newCopy();
+
 
 }

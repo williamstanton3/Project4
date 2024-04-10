@@ -20,9 +20,11 @@ public class VigenereCipher extends Cipher {
 			subCiphers.add(new CaesarCipher(amt));
 		}
 	}
-	
+
+	// copy constructor
 	public VigenereCipher(VigenereCipher other){
-		// TODO: complete this copy constructor
+		this.nextIndexForDecrypt = other.nextIndexForDecrypt;
+		this.nextIndexForEncrypt = other.nextIndexForEncrypt;
 	}
 	
 	@Override

@@ -6,11 +6,12 @@ public class CaesarCipher extends Cipher {
 	/**
 	 * @param amt - the distance to shift letters when encrypting
 	 */
-	public CaesarCipher(int amt){
+	public CaesarCipher(int amt) {
 		shiftAmount = amt;
 	}
-	
-	public CaesarCipher(CaesarCipher other){
+
+	// copy constructor
+	public CaesarCipher (CaesarCipher other) {
 		this.shiftAmount = other.shiftAmount;
 	}
 	
@@ -41,6 +42,7 @@ public class CaesarCipher extends Cipher {
 	@Override
 	public Cipher newCopy() {
 		return new CaesarCipher(this);
+
 	}
 
 }
