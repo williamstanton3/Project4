@@ -42,7 +42,6 @@ public class CaesarCipher extends Cipher {
 	@Override
 	public Cipher newCopy() {
 		return new CaesarCipher(this);
-
 	}
 
 }

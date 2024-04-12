@@ -2,43 +2,30 @@ import java.util.ArrayList;
 
 public class CompositionCipher extends Cipher {
     private final static int NUM_LETTERS = 26;
-    private ArrayList<Cipher> cList;
+    private ArrayList<Cipher> ciphers;
 
     public CompositionCipher() {
-        cList = new ArrayList<>();
+        ciphers = new ArrayList<>();
     }
     public CompositionCipher (CompositionCipher other) {
-        this.cList = other.cList;
+        this.ciphers = other.ciphers;
     }
 
     @Override
     public char encrypt (char c) {
-        // step 1
-        CaesarCipher step1 = new CaesarCipher(3);
-        char myChar = step1.encrypt(c);
-        // step 2
-        CaesarCipher step2 = new CaesarCipher(5);
-        myChar = step2.encrypt(myChar);
-        // step 3
-        CaesarCipher step3 = new CaesarCipher(20);
-        myChar = step3.encrypt(myChar);
-
+        char myChar = c;
+        for (int i = 0; i < ciphers.size(); i++) {
+            myChar = ciphers.get(i).encrypt(myChar);
+        }
         return myChar;
-
     }
 
     @Override
     public char decrypt (char c) {
-        // step 1
-        CaesarCipher step1 = new CaesarCipher(20);
-        char myChar = step1.decrypt(c);
-        // step 2
-        CaesarCipher step2 = new CaesarCipher(5);
-        myChar = step2.decrypt(myChar);
-        // step 3
-        CaesarCipher step3 = new CaesarCipher(3);
-        myChar = step3.decrypt(myChar);
-
+        char myChar = c;
+        for (int i = ciphers.size() -1; i >= 0; i--) {
+            myChar = ciphers.get(i).decrypt(myChar);
+        }
         return myChar;
     }
 
@@ -48,7 +35,7 @@ public class CompositionCipher extends Cipher {
     }
 
     public void add (Cipher theCipher) {
-        cList.add(theCipher);
+        ciphers.add(theCipher);
     }
 
 }

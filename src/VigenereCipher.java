@@ -22,7 +22,8 @@ public class VigenereCipher extends Cipher {
 	}
 
 	// copy constructor
-	public VigenereCipher(VigenereCipher other){
+	public VigenereCipher(VigenereCipher other) {
+		this.subCiphers = other.subCiphers;
 		this.nextIndexForDecrypt = other.nextIndexForDecrypt;
 		this.nextIndexForEncrypt = other.nextIndexForEncrypt;
 	}

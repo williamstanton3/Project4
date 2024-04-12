@@ -1,9 +1,6 @@
 abstract class Cipher {
 
-
-    public Cipher() {
-
-    }
+    public Cipher() {}
 
     // encrypt char
     abstract char encrypt(char c);
@@ -12,7 +9,7 @@ abstract class Cipher {
     abstract char decrypt(char c);
 
     // encrypt string
-    public String encrypt(String s) { // may be abstract
+    public String encrypt(String s) {
         StringBuilder sb = new StringBuilder();
         char c;
         for (int i = 0; i < s.length(); i++) {
@@ -24,7 +21,7 @@ abstract class Cipher {
     }
 
     // decrypt string
-    public String decrypt(String s) { // may be abstract
+    public String decrypt(String s) {
         StringBuilder sb = new StringBuilder();
         char c;
         for (int i = 0; i < s.length(); i++) {
@@ -37,6 +34,5 @@ abstract class Cipher {
 
     // newCopy
     abstract Cipher newCopy();
-
 
 }
