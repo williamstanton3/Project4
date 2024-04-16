@@ -1,38 +1,63 @@
 abstract class Cipher {
 
+    /**
+     * Default constructor for Cipher.
+     */
     public Cipher() {}
 
-    // encrypt char
+    /**
+     * Abstract method to encrypt a single character.
+     * @param c the character to encrypt
+     * @return the encrypted character
+     */
     abstract char encrypt(char c);
 
-    // decrypt char
+    /**
+     * Abstract method to decrypt a single character.
+     * @param c the character to decrypt
+     * @return the decrypted character
+     */
     abstract char decrypt(char c);
 
-    // encrypt string
+    /**
+     * Encrypts a string using the cipher.
+     * @param s the string to encrypt
+     * @return the encrypted string
+     */
     public String encrypt(String s) {
+        //create new stringBuilder
         StringBuilder sb = new StringBuilder();
         char c;
         for (int i = 0; i < s.length(); i++) {
+            //iterate through each character of the sb and encrypt charAt i
             c = encrypt(s.charAt(i));
             sb.append(c);
         }
-        // return encrypted String
         return sb.toString();
     }
 
-    // decrypt string
+    /**
+     * Decrypts a string using the cipher.
+     * @param s the string to decrypt
+     * @return the decrypted string
+     */
     public String decrypt(String s) {
+        //create a String Builder
         StringBuilder sb = new StringBuilder();
         char c;
         for (int i = 0; i < s.length(); i++) {
+            //iterate through each character of the sb and decrypt charAt i
             c = decrypt(s.charAt(i));
             sb.append(c);
         }
-        // return encrypted String
         return sb.toString();
     }
 
-    // newCopy
+    /**
+     * Creates a new copy of the cipher.
+     * @return a new copy of the cipher
+     */
     abstract Cipher newCopy();
 
 }
+

@@ -10,11 +10,19 @@ public class CaesarCipher extends Cipher {
 		shiftAmount = amt;
 	}
 
-	// copy constructor
+	/**
+	 * Creates a new CaesarCipher object that is a copy of the given CaesarCipher.
+	 * @param other the CaesarCipher to copy
+	 */
 	public CaesarCipher (CaesarCipher other) {
 		this.shiftAmount = other.shiftAmount;
 	}
-	
+
+	/**
+	 * Encrypts a character by shifting the letter type by the shift amount
+	 * @param c the character to encrypt
+	 * @return c the encrypted character
+	 */
 	@Override
 	public char encrypt(char c) {
 		if(Character.isAlphabetic(c)){
@@ -27,6 +35,11 @@ public class CaesarCipher extends Cipher {
 		}
 	}
 
+	/**
+	 * Reverse the encryption process by taking a letter and shifting the letter type by the opposite of the shiftAmount
+	 * @param c the character to decrypt
+	 * @return c the decrypted character
+	 */
 	@Override
 	public char decrypt(char c) {
 		if(Character.isAlphabetic(c)){
@@ -38,7 +51,9 @@ public class CaesarCipher extends Cipher {
 		}
 	}
 
-	// Returns a new object, a deep copy of the current object
+	/**
+	 * @return a new object, a deep copy of the current object
+	 */
 	@Override
 	public Cipher newCopy() {
 		return new CaesarCipher(this);
