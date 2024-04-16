@@ -7,8 +7,17 @@ public class CompositionCipher extends Cipher {
     public CompositionCipher() {
         ciphers = new ArrayList<>();
     }
-    public CompositionCipher (CompositionCipher other) {
-        this.ciphers = other.ciphers;
+
+    // Copy constructor
+    public CompositionCipher(CompositionCipher other) {
+        // Create a new ArrayList for this composition cipher
+        this.ciphers = new ArrayList<>();
+
+        // Copy the ciphers from the other composition cipher
+        for (int i = 0; i < other.ciphers.size(); i++) {
+            this.ciphers.add(other.ciphers.get(i).newCopy());
+        }
+
     }
 
     @Override
