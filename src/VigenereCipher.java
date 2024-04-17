@@ -26,6 +26,7 @@ public class VigenereCipher extends Cipher {
 		this.subCiphers = other.subCiphers;
 		this.nextIndexForDecrypt = other.nextIndexForDecrypt;
 		this.nextIndexForEncrypt = other.nextIndexForEncrypt;
+
 	}
 	
 	@Override

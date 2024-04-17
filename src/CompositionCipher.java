@@ -18,7 +18,7 @@ public class CompositionCipher extends Cipher {
         // Create a new ArrayList for this composition cipher
         this.ciphers = new ArrayList<>();
 
-        // Copy the ciphers from the other composition cipher as new objects
+        // Copy the ciphers from the other composition cipher as new objects using deep copy
         for (Cipher cipher : other.ciphers) {
             this.ciphers.add(cipher.newCopy());
         }
@@ -32,7 +32,9 @@ public class CompositionCipher extends Cipher {
     @Override
     public char encrypt(char c) {
         char myChar = c;
+        // Iterate through the ciphers in order
         for (Cipher cipher : ciphers) {
+            // encrypt the character using the current cipher
             myChar = cipher.encrypt(myChar);
         }
         return myChar;
